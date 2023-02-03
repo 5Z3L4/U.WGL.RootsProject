@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private float _speed = 2f;
     
-    void Update()
+    private void Update()
     {
         var distance = _speed * Time.deltaTime;
 
