@@ -27,13 +27,13 @@ public class Movement : MonoBehaviour
     
     private void FixedUpdate()
     {
-       if (_horizontal != 0 && _vertical != 0) // Check for diagonal movement
-       {
-          // limit movement speed diagonally, so you move at 70% speed
-          _horizontal *= _moveLimiter;
-          _vertical *= _moveLimiter;
-       } 
-    
-       _rb.velocity = new Vector2(_horizontal * runSpeed, _vertical * runSpeed) * (Time.fixedDeltaTime * 100);
+        if (_horizontal != 0 && _vertical != 0) // Check for diagonal movement
+        {
+            // limit movement speed diagonally, so you move at 70% speed
+            _horizontal *= _moveLimiter;
+            _vertical *= _moveLimiter; 
+        }
+
+        _rb.velocity = new Vector2(_horizontal * runSpeed, _vertical * runSpeed) * (Time.fixedDeltaTime * 100);
     }
 }
