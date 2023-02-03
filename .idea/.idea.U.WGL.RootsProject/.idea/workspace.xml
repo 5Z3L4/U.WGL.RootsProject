@@ -4,6 +4,7 @@
     <list default="true" id="1388e22c-5044-49ea-9c2a-bcec02af5ef9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.U.WGL.RootsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.U.WGL.RootsProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/FollowMouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/FollowMouse.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +13,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/FollowMouse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/RootMovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675451918133</updated>
-      <workItem from="1675451924553" duration="3281000" />
+      <workItem from="1675451924553" duration="7000000" />
     </task>
     <servers />
   </component>
