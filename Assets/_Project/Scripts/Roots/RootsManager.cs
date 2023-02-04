@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,6 +11,11 @@ public class RootsManager : Singleton<RootsManager>
     public List<FollowMouse> AllRoots;
     public GameObject Water;
     public List<Transform> Targets = new();
+
+    private void Start()
+    {
+            ChoseRoot();
+    }
 
     public void AddTarget(Transform target)
     {
@@ -28,11 +34,12 @@ public class RootsManager : Singleton<RootsManager>
         }
         Targets.Remove(target);
     }
-    
+
     public void ChoseRoot()
     {
         float lowestDistance = 1000;
-        foreach (var root in AllRoots)
+        List<FollowMouse> fm = new List<FollowMouse> { CurrentFollow};
+        foreach (var root in AllRoots.Except(fm))
         {
             if (Vector2.Distance(root.transform.position, Water.transform.position) < lowestDistance)
             {
