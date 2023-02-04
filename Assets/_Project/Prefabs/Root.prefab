@@ -131,5 +131,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPosition: {fileID: 0}
-  _speed: 7
+  _speed: 5
   IsStarted: 0

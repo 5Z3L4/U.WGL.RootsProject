@@ -21,9 +21,20 @@ public class RootsManager : Singleton<RootsManager>
     {
         Targets.Add(target);
         CurrentFollow.ChangeTarget(Targets[0]);
+    }  
+    
+    public void TryGetTarget()
+    {
+        if (Targets.Count > 0)
+        {
+            CurrentFollow.ChangeTarget(Targets[0]);
+        }
     } 
+    
     public void RemoveTarget(Transform target)
     {
+        if (!Targets.Contains(target)) return;
+        
         if (Targets.Count > 1)
         {
             CurrentFollow.ChangeTarget(Targets[1]);
