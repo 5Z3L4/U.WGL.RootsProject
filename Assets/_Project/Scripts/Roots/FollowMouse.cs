@@ -39,6 +39,11 @@ public class FollowMouse : MonoBehaviour
         RootsManager.Instance.CurrentFollow = this;
     }
 
+    public void ChangeTarget(Transform target)
+    {
+        Rm._playerPosition = target;
+    }
+
     //Creates base of root
     public void CreateLine()
     {
@@ -58,6 +63,7 @@ public class FollowMouse : MonoBehaviour
     //Movement of Apex
     public void UpdateLine(Vector2 newFingerPosition)
     {
+        CurrentLine.GetComponent<EdgeCollider2D>().enabled = true;
         FingerPositions.Add(newFingerPosition);
         LineRenderer.positionCount++;
         LineRenderer.SetPosition(LineRenderer.positionCount -1 , newFingerPosition);
@@ -67,6 +73,7 @@ public class FollowMouse : MonoBehaviour
     [ContextMenu("Reset")]
     public void ResetLine()
     {
+        CurrentLine.GetComponent<EdgeCollider2D>().enabled = false;
         Destroy(CurrentLine);
         FingerPositions.Clear();
         FollowObj.transform.position = FollowObjStartPos.position;
