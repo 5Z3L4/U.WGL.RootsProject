@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1388e22c-5044-49ea-9c2a-bcec02af5ef9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.U.WGL.RootsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.U.WGL.RootsProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Line.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Line.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Root.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Root.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Water.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/Water.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +74,7 @@
       <updated>1675451918133</updated>
       <workItem from="1675451924553" duration="7186000" />
       <workItem from="1675492310483" duration="14875000" />
+      <workItem from="1675528676158" duration="899000" />
     </task>
     <servers />
   </component>
