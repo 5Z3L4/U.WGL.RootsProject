@@ -18,6 +18,7 @@ public class EnemyDeath : MonoBehaviour
 
     private void Die()
     {
+        RootsManager.Instance.RemoveTarget(transform);
         StartCoroutine("WaitAndDestroy");
         _enemySprite.SetActive(false);
         _enemyExplode.SetActive(true);

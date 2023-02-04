@@ -74,6 +74,7 @@ public class FollowMouse : MonoBehaviour
     public void ResetLine()
     {
         CurrentLine.GetComponent<EdgeCollider2D>().enabled = false;
+        RootsManager.Instance.Targets.Clear();
         Destroy(CurrentLine);
         FingerPositions.Clear();
         FollowObj.transform.position = FollowObjStartPos.position;

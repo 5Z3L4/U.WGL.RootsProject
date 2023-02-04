@@ -14,6 +14,12 @@ public class RootMovement : MonoBehaviour
         if (!IsStarted) return;
         var distance = _speed * Time.deltaTime;
         
+        //prob fix of nulls in list
+        if (_playerPosition == null)
+        {
+            _playerPosition = RootsManager.Instance.Water.transform;
+            RootsManager.Instance.TryGetTarget(); 
+        }
         transform.position = Vector3.MoveTowards(transform.position, _playerPosition.position, distance);
     }
 }
