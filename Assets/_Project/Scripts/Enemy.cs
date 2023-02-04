@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     private Rigidbody2D _rb;
 
+    private DeathSceneManager _deathManager;
     private EnemiesController _enemiesController;
     private Transform _playerTransform;
     private float _enemySpeed;
@@ -13,16 +14,17 @@ public class Enemy : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (_enemiesController.IsPlayerDead) return;
 
         _rb.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _enemySpeed * Time.deltaTime);
     }
 
-    public void SetEnemyData(EnemiesController enemiesController, Transform playerTransform, float speed)
+    public void SetEnemyData(EnemiesController enemiesController, DeathSceneManager deathManager, Transform playerTransform, float speed)
     {
         _enemiesController = enemiesController;
+        _deathManager = deathManager;
         _playerTransform = playerTransform;
         _enemySpeed = speed;
     }
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             _enemiesController.IsPlayerDead = true;
+            _deathManager.DisplayDeathScene();
             Destroy(collider.gameObject);
         }
     }
