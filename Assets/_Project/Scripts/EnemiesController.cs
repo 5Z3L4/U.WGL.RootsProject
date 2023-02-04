@@ -11,6 +11,8 @@ public class EnemiesController : MonoBehaviour
     [SerializeField] private List<Transform> _respawnPoints;
     [SerializeField] private float _respawnTime;
     [SerializeField] private float _respawnTimeOnStart;
+    private float _playTime;
+    private float _respawnTimeMultiplier = 1f;
 
     private float _timer;
     public bool IsPlayerDead = false;
@@ -22,13 +24,20 @@ public class EnemiesController : MonoBehaviour
 
     private void Update()
     {
+        _playTime += Time.deltaTime;
         _timer -= Time.deltaTime;
         if(_timer < 0 && !IsPlayerDead)
         {
-            _timer = _respawnTime;
+            _timer = _respawnTime * _respawnTimeMultiplier;
             int pointNumber = Random.Range(0, _respawnPoints.Count);
             GameObject enemy = Instantiate(_enemyToSpawn, _respawnPoints[pointNumber]);
             enemy.GetComponent<Enemy>().SetEnemyData(this, _deathManager, _playerTransform, _speed);
+        }
+
+        if (_playTime >= 15)
+        {
+            _respawnTimeMultiplier *= 0.75f;
+            _playTime = 0;
         }
     }
 }
