@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,6 +13,20 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (_enemiesController.IsPlayerDead) return;
+        
+        if(_playerTransform.position.x - transform.position.x > 0)
+        {
+            _rb.transform.localScale = new Vector3(.5f,.5f,.5f);
+        }
+        else if(_playerTransform.position.x - transform.position.x < 0)
+        {
+            _rb.transform.localScale = new Vector3(-.5f,.5f,.5f);;
+        }
     }
 
     private void FixedUpdate()
