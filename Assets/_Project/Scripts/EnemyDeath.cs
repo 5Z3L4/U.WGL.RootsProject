@@ -7,6 +7,7 @@ public class EnemyDeath : MonoBehaviour
     [SerializeField] private GameObject _enemyExplode;
     [SerializeField] private GameObject _enemySprite;
     [SerializeField] private GameObject _bloodParticles;
+    [SerializeField] private GameObject _body;
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
@@ -19,16 +20,10 @@ public class EnemyDeath : MonoBehaviour
     private void Die()
     {
         RootsManager.Instance.RemoveTarget(transform);
-        StartCoroutine("WaitAndDestroy");
-        _enemySprite.SetActive(false);
-        _enemyExplode.SetActive(true);
+        GameObject body = Instantiate(_body, transform.position, Quaternion.identity);
+        Destroy(body, 3);
         GameObject ExplosionParticlesIns = Instantiate(_bloodParticles, transform.position, Quaternion.identity);
         Destroy(ExplosionParticlesIns, 3);
-    }
-
-    private IEnumerator WaitAndDestroy()
-    {
-        yield return new WaitForSeconds(1.0f);
         Destroy(gameObject);
-    }
+    } 
 }

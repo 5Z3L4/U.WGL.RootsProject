@@ -587,6 +587,7 @@ MonoBehaviour:
   _enemyExplode: {fileID: 6346583168489741189}
   _enemySprite: {fileID: 6346583169959665840}
   _bloodParticles: {fileID: 7990068745279774960, guid: da9ba7b3afdf7e94c93c6a4abb6ebdbf, type: 3}
+  _body: {fileID: 8680309342204429339, guid: b9f5df5d567a9fb4f85c414d17456bfd, type: 3}
 --- !u!114 &7465360923633577606
 MonoBehaviour:
   m_ObjectHideFlags: 0
