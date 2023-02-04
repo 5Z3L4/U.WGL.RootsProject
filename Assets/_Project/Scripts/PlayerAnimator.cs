@@ -12,10 +12,16 @@ public class PlayerAnimator : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
+    [SerializeField] private SpriteRenderer _sprite;
+
     private void Update()
     {
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
+
+        if (_horizontal == 0) return;
+
+        _sprite.flipX = _horizontal < 0;
     }
 
     private void FixedUpdate()
