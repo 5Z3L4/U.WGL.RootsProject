@@ -17,6 +17,8 @@ public class FollowMouse : MonoBehaviour
     public GameObject FollowObj;
     public Transform FollowObjStartPos;
 
+    public RootMovement Rm;
+
     private void Start()
     {
         CreateLine();
@@ -28,6 +30,13 @@ public class FollowMouse : MonoBehaviour
         {
             UpdateLine(FollowObj.transform.position);
         }
+    }
+
+    [ContextMenu("StartMovement")]
+    public void StartMovement()
+    {
+        Rm.IsStarted = true;
+        RootsManager.Instance.CurrentFollow = this;
     }
 
     //Creates base of root
@@ -61,6 +70,7 @@ public class FollowMouse : MonoBehaviour
         Destroy(CurrentLine);
         FingerPositions.Clear();
         FollowObj.transform.position = FollowObjStartPos.position;
+        Rm.IsStarted = false;
         CreateLine();
     }
 }

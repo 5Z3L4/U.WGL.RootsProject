@@ -253,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPosition: {fileID: 2146182582}
   _speed: 2
-  _isStarted: 0
+  IsStarted: 0
 --- !u!1 &527672487
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   StartPos: {fileID: 686796110}
   FollowObj: {fileID: 527299429}
   FollowObjStartPos: {fileID: 1477343409}
+  Rm: {fileID: 527299431}
 --- !u!4 &686796110
 Transform:
   m_ObjectHideFlags: 0
@@ -644,6 +645,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 2
+--- !u!1 &1212734541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1212734542}
+  - component: {fileID: 1212734543}
+  m_Layer: 0
+  m_Name: RootsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1212734542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212734541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.835261, y: 0.61473805, z: -0.021412643}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1212734543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212734541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc316611ebe34140bcd8ad973cdd070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentFollow: {fileID: 0}
 --- !u!1 &1477343408
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1dff428668f06543b1c563892f9633b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fm: {fileID: 686796109}
+  Rm: {fileID: 527299431}
 --- !u!1001 &8124415424469083574
 PrefabInstance:
   m_ObjectHideFlags: 0

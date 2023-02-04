@@ -1,18 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WaterTriggers : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public FollowMouse Fm;
+    public RootMovement Rm;
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (col.CompareTag("Root"))
+        {
+            if (RootsManager.Instance.CurrentFollow == null) return;
+            
+            RootsManager.Instance.CurrentFollow.ResetLine();
+        }
     }
 }
