@@ -3796,6 +3796,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!198 &839919242 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 774388337088245538, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
+  m_PrefabInstance: {fileID: 1394979746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &871461860
 GameObject:
   m_ObjectHideFlags: 0
@@ -4713,6 +4718,7 @@ GameObject:
   - component: {fileID: 1108583277}
   - component: {fileID: 1108583276}
   - component: {fileID: 1108583279}
+  - component: {fileID: 1108583280}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -4808,6 +4814,23 @@ MonoBehaviour:
   _comboTextLeft: {fileID: 1508545265}
   _comboTextRight: {fileID: 1200144977}
   _timer: 0
+--- !u!114 &1108583280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108583275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829b7bf3c1ebfe74e84f20d235e6503e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanTagEnemy: 1
+  _waterParticles: {fileID: 2127873226}
+  _waterTrailParticles: {fileID: 839919242}
+  _maxDecreaseStepsCount: 3
+  _delay: 1.5
 --- !u!114 &1191018317 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4644116048875904544, guid: 8b870e82db5087a4a88b7f9d7d0c6df7, type: 3}
@@ -55485,6 +55508,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!198 &2127873226 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7525672065356868158, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
+  m_PrefabInstance: {fileID: 1394979746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2143473726
 GameObject:
   m_ObjectHideFlags: 0
