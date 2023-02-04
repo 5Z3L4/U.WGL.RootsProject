@@ -20,6 +20,11 @@ public class RootMovement : MonoBehaviour
             _playerPosition = RootsManager.Instance.Water.transform;
             RootsManager.Instance.TryGetTarget(); 
         }
+
+        if (_playerPosition == null)
+        {
+            _playerPosition = _playerPosition = RootsManager.Instance.Water.transform;;
+        }
         transform.position = Vector3.MoveTowards(transform.position, _playerPosition.position, distance);
     }
 }

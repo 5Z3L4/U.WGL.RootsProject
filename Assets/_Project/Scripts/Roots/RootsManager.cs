@@ -19,6 +19,8 @@ public class RootsManager : Singleton<RootsManager>
 
     public void AddTarget(Transform target)
     {
+        if (Targets.Contains(target)) return;
+        
         Targets.Add(target);
         CurrentFollow.ChangeTarget(Targets[0]);
     }  
