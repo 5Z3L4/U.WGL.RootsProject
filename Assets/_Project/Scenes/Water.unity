@@ -4831,6 +4831,7 @@ MonoBehaviour:
   _waterTrailParticles: {fileID: 839919242}
   _maxDecreaseStepsCount: 3
   _delay: 1.5
+  _col: {fileID: 1621473542}
 --- !u!114 &1191018317 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4644116048875904544, guid: 8b870e82db5087a4a88b7f9d7d0c6df7, type: 3}
@@ -6866,6 +6867,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1621473542 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 746948598604126228, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
+  m_PrefabInstance: {fileID: 1394979746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1623809309
 GameObject:
   m_ObjectHideFlags: 0

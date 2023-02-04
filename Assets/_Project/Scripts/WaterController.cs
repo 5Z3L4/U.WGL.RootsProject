@@ -12,6 +12,7 @@ public class WaterController : MonoBehaviour
     [SerializeField] private ParticleSystem _waterTrailParticles;
     [SerializeField] private int _maxDecreaseStepsCount;
     [SerializeField] private float _delay;
+    [SerializeField] private Collider2D _col;
     private float _startingRateOverTime;
     private float _startingRateOverDistance;
     private int _counter;
@@ -63,6 +64,8 @@ public class WaterController : MonoBehaviour
         }
         else
         {
+            CanTagEnemy = false;
+            _col.enabled = false;
             StartCoroutine(StartWaterDelay());
         }
     }
@@ -77,7 +80,7 @@ public class WaterController : MonoBehaviour
         waterTrailParticlesEmission.rateOverDistance = new ParticleSystem.MinMaxCurve(0);
         waterParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(0);
         waterTrailParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(0);
-        CanTagEnemy = false;
+        yield return new WaitUntil(()=> RootsManager.Instance.Targets.Count == 0);
         yield return new WaitForSeconds(_delay);
         waterParticlesEmission.rateOverTime = new ParticleSystem.MinMaxCurve(_startingRateOverTime);
         waterTrailParticlesEmission.rateOverDistance = new ParticleSystem.MinMaxCurve(_startingRateOverDistance);
@@ -85,5 +88,7 @@ public class WaterController : MonoBehaviour
         waterTrailParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(_waterTrailParticleStartingSize);
         _counter = _maxDecreaseStepsCount;
         CanTagEnemy = true;
+        _col.enabled = true;
+        RootsManager.Instance.ChoseRoot();
     }
 }

@@ -46,6 +46,10 @@ public class RootsManager : Singleton<RootsManager>
         {
             CurrentFollow.ChangeTarget(Water.transform);
         }
+        if (!WaterController.Instance.CanTagEnemy && Targets.Count == 1)
+        {
+            CurrentFollow.ResetLine();
+        }
         Targets.Remove(target);
     }
 
