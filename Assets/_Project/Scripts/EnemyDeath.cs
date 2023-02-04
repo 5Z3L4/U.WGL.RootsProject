@@ -6,11 +6,11 @@ public class EnemyDeath : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyExplode;
     [SerializeField] private GameObject _enemySprite;
-    [SerializeField] private ParticleSystem _bloodParticles;
+    [SerializeField] private GameObject _bloodParticles;
 
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.collider.CompareTag("Player"))
+        if (coll.CompareTag("Root"))
         {
             Die();
         }   
@@ -21,7 +21,8 @@ public class EnemyDeath : MonoBehaviour
         StartCoroutine("WaitAndDestroy");
         _enemySprite.SetActive(false);
         _enemyExplode.SetActive(true);
-        _bloodParticles.Play();
+        GameObject ExplosionParticlesIns = Instantiate(_bloodParticles, transform.position, Quaternion.identity);
+        Destroy(ExplosionParticlesIns, 3);
     }
 
     private IEnumerator WaitAndDestroy()
