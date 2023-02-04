@@ -11,5 +11,16 @@ public class RootCollisions : MonoBehaviour
         {
             print("works");
         }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("GameController"))
+        {
+            if (RootsManager.Instance.CurrentFollow == null) return;
+            
+            RootsManager.Instance.CurrentFollow.ResetLine();
+        }
     }
 }
