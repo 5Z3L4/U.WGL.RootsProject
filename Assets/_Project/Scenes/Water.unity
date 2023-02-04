@@ -5611,6 +5611,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 746948598604126228, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
+      propertyPath: m_Radius
+      value: 4.47042
+      objectReference: {fileID: 0}
+    - target: {fileID: 746948598604126228, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.28343797
+      objectReference: {fileID: 0}
     - target: {fileID: 7525672065356868157, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -5633,11 +5641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961202680638219903, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.76
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 7961202680638219903, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.63
+      value: 2.96
       objectReference: {fileID: 0}
     - target: {fileID: 7961202680638219903, guid: 53806d079c616544fae5aca0c0e4fda4, type: 3}
       propertyPath: m_LocalPosition.z
