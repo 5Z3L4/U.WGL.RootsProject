@@ -37,11 +37,13 @@ public class FollowMouse : MonoBehaviour
 
         CurrentLine = Instantiate(LinePrefab, Vector3.zero, Quaternion.identity);
         LineRenderer = CurrentLine.GetComponent<LineRenderer>();
+        EdgeCollider = CurrentLine.GetComponent<EdgeCollider2D>();
         FingerPositions.Clear();
         FingerPositions.Add(StartPos.position);
         FingerPositions.Add(FollowObj.transform.position);
         LineRenderer.SetPosition(0, FingerPositions[0]);
         LineRenderer.SetPosition(1, FingerPositions[1]);
+        EdgeCollider.points = FingerPositions.ToArray();
     }
 
     //Movement of Apex
@@ -50,7 +52,7 @@ public class FollowMouse : MonoBehaviour
         FingerPositions.Add(newFingerPosition);
         LineRenderer.positionCount++;
         LineRenderer.SetPosition(LineRenderer.positionCount -1 , newFingerPosition);
-        
+        EdgeCollider.points = FingerPositions.ToArray();
     }
 
     [ContextMenu("Reset")]
