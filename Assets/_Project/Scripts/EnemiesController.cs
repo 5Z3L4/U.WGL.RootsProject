@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemiesController : MonoBehaviour
 {
+    [SerializeField] private DeathSceneManager _deathManager;
     [SerializeField] private GameObject _enemyToSpawn;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _speed;
@@ -14,12 +15,12 @@ public class EnemiesController : MonoBehaviour
     private float _timer;
     public bool IsPlayerDead = false;
 
-    void Start()
+    private void Start()
     {
         _timer = _respawnTimeOnStart;
     }
 
-    void Update()
+    private void Update()
     {
         _timer -= Time.deltaTime;
         if(_timer < 0 && !IsPlayerDead)
@@ -27,7 +28,7 @@ public class EnemiesController : MonoBehaviour
             _timer = _respawnTime;
             int pointNumber = Random.Range(0, _respawnPoints.Count);
             GameObject enemy = Instantiate(_enemyToSpawn, _respawnPoints[pointNumber]);
-            enemy.GetComponent<Enemy>().SetEnemyData(this, _playerTransform, _speed);
+            enemy.GetComponent<Enemy>().SetEnemyData(this, _deathManager, _playerTransform, _speed);
         }
     }
 }
