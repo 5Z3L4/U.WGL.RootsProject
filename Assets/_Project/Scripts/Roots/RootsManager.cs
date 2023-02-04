@@ -21,6 +21,7 @@ public class RootsManager : Singleton<RootsManager>
     {
         if (Targets.Contains(target)) return;
         
+        WaterController.Instance.DecreaseWater();
         Targets.Add(target);
         CurrentFollow.ChangeTarget(Targets[0]);
     }  
