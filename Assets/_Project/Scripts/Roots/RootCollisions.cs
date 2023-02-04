@@ -21,6 +21,7 @@ public class RootCollisions : MonoBehaviour
             if (RootsManager.Instance.CurrentFollow == null) return;
             
             RootsManager.Instance.CurrentFollow.ResetLine();
+            RootsManager.Instance.ChoseRoot();
         }
     }
 }
