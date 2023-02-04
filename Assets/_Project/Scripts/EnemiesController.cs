@@ -18,7 +18,6 @@ public class EnemiesController : MonoBehaviour
     private float _timer;
     public bool IsPlayerDead = false;
 
-    
     private void Awake()
     {
         if (Instance != null && Instance != this) 

@@ -10,8 +10,11 @@ public class EnemyExplode : MonoBehaviour
 
     [SerializeField] private LayerMask _layerToHit;
 
+    [SerializeField] private AudioSource _explodeSound;
+
     private void OnEnable()
     {
+        _explodeSound.Play();
         Explode();
     }
 
