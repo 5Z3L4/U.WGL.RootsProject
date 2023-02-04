@@ -21,7 +21,8 @@ public class PlayerAnimator : MonoBehaviour
 
         if (_horizontal == 0) return;
 
-        _sprite.flipX = _horizontal < 0;
+        Vector3 localScale = _sprite.transform.localScale;
+        _sprite.transform.localScale = _horizontal < 0 ? new Vector3(-0.75f, 0.75f) : new Vector3(0.75f, 0.75f);
     }
 
     private void FixedUpdate()
