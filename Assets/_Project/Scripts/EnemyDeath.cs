@@ -13,6 +13,7 @@ public class EnemyDeath : MonoBehaviour
     {
         if (coll.CompareTag("Root"))
         {
+            ComboSystem.Instance.IncreaseStreak();
             Die();
         }   
     }
