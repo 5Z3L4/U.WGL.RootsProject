@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_Project/Scenes/SpawnEnemies.unity
+    guid: 0a40b01c7be698f42a91d7ca6c4eac41
   m_configObjects: {}
