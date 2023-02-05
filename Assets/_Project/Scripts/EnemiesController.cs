@@ -50,9 +50,9 @@ public class EnemiesController : MonoBehaviour
             enemy2.GetComponent<Enemy>().SetEnemyData(this, _canvasManager, PlayerTransform, _speed);
         }
 
-        if (_playTime >= 5)
+        if (_playTime >= 4)
         {
-            if (_respawnTime <= 1) return;
+            if (_respawnTime <= 1.4) return;
             _respawnTime -= 0.2f;
             _playTime = 0;
         }
