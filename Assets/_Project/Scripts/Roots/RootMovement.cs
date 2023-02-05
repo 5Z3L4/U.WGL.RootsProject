@@ -14,6 +14,8 @@ public class RootMovement : MonoBehaviour
     private float _increaseTimerBase = 15;
     private float _increaseTimer;
 
+    [SerializeField] private AudioSource _rootSound;
+
     private void Start()
     {
         _increaseTimer = _increaseTimerBase;
@@ -32,8 +34,14 @@ public class RootMovement : MonoBehaviour
             _increaseTimer = _increaseTimerBase;
             _baseSpeed += 0.2f;
         }
-        
-        if (!IsStarted) return;
+
+        if (!IsStarted)
+        {
+            _rootSound.enabled = false;
+            return;
+        }
+        _rootSound.enabled = true;
+
         var distance = _speed * Time.deltaTime;
         
         //prob fix of nulls in list
