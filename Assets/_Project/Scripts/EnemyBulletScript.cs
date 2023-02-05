@@ -30,6 +30,14 @@ public class EnemyBulletScript : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rot);
     }
 
+    private void Update()
+    {
+        if (_rb.velocity.x == 0 && _rb.velocity.y == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.collider.CompareTag("Walls"))

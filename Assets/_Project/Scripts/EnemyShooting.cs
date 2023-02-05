@@ -17,10 +17,6 @@ public class EnemyShooting : MonoBehaviour
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        if (_player == null)
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void Update()
@@ -31,10 +27,14 @@ public class EnemyShooting : MonoBehaviour
         {
             _timer = 0;
 
-            if (Vector2.Distance(transform.position, _player.transform.position) <= _distance)
+            if (_player != null)
             {
-                Shoot();
-            } 
+                if (Vector2.Distance(transform.position, _player.transform.position) <= _distance)
+                {
+                    Shoot();
+                }
+            }
+             
         }
     }
 
