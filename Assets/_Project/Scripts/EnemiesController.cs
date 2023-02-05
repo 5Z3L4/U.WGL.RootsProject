@@ -47,7 +47,7 @@ public class EnemiesController : MonoBehaviour
             enemy.GetComponent<Enemy>().SetEnemyData(this, _canvasManager, PlayerTransform, _speed);
         }
 
-        if (_playTime >= 15)
+        if (_playTime >= 8)
         {
             if (_respawnTime <= 1) return;
             _respawnTime -= 0.2f;

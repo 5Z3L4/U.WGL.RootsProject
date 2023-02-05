@@ -6,9 +6,10 @@ using UnityEngine.Serialization;
 
 public class FollowMouse : MonoBehaviour
 {
-    public GameObject LinePrefab;
+    private GameObject _linePrefab;
     public GameObject CurrentLine;
 
+    public PrefabsHolder PrefabsHolder;
     public LineRenderer LineRenderer;
     public EdgeCollider2D EdgeCollider;
     public List<Vector2> FingerPositions = new List<Vector2>();
@@ -27,6 +28,7 @@ public class FollowMouse : MonoBehaviour
     }
     private void Start()
     {
+        _linePrefab = PrefabsHolder.UsedRoot;
         CreateLine();
     }
 
@@ -53,9 +55,9 @@ public class FollowMouse : MonoBehaviour
     //Creates base of root
     public void CreateLine()
     {
-        if (LinePrefab == null) return;
+        if (_linePrefab == null) return;
 
-        CurrentLine = Instantiate(LinePrefab, Vector3.zero, Quaternion.identity);
+        CurrentLine = Instantiate(_linePrefab, Vector3.zero, Quaternion.identity);
         LineRenderer = CurrentLine.GetComponent<LineRenderer>();
         EdgeCollider = CurrentLine.GetComponent<EdgeCollider2D>();
         FingerPositions.Clear();
