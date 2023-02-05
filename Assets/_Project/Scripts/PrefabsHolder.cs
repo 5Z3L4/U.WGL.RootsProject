@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PrefabsHolder : MonoBehaviour
@@ -12,6 +10,8 @@ public class PrefabsHolder : MonoBehaviour
 
     private void Awake()
     {
+        KretMode = Convert.ToBoolean(PlayerPrefs.GetInt("KretMode", 0));
+
         if (KretMode)
         {
             UsedRoot = KretRoot;
