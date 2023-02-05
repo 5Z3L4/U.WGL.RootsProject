@@ -69,7 +69,11 @@ public class RootsManager : MonoBehaviour
     public void ChoseRoot()
     {
         if (!_wc.CanTagEnemy) return;
-        
+        if (CurrentFollow != null && CurrentFollow.CurrentLine.GetComponent<EdgeCollider2D>().enabled)
+        {
+            CurrentFollow.ResetLine();
+            Targets.Clear();
+        }
         float lowestDistance = 1000;
         List<FollowMouse> fm = new List<FollowMouse> { CurrentFollow};
         foreach (var root in AllRoots.Except(fm))

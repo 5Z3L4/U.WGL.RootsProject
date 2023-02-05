@@ -54,6 +54,7 @@ public class RootMovement : MonoBehaviour
         if (_playerPosition == null)
         {
             _playerPosition = _playerPosition = _rootsManager.Water.transform;;
+            _rootsManager.Targets.Clear();
         }
 
         if (_playerPosition != _rootsManager.Water.transform)
