@@ -4732,11 +4732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d872905c35a21184999cb53dd7782a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: Water
-  _deathScene: {fileID: 959594592}
-  _playerScore: {fileID: 355836237}
-  _playAgainButton: {fileID: 778201121}
-  _mainMenuButton: {fileID: 215527968}
 --- !u!114 &1108583277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4749,7 +4744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464c2c8899dcc4f4ca79e7191107c235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathManager: {fileID: 1108583276}
+  _canvasManager: {fileID: 0}
   _enemyToSpawn: {fileID: 6346583168655351976, guid: e0d97151d4eb9eb4d8820e0de8d05247, type: 3}
   PlayerTransform: {fileID: 1986278025}
   _speed: 1
