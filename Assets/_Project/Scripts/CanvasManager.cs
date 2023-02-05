@@ -75,6 +75,7 @@ public class CanvasManager : MonoBehaviour
     private void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 
     private void SetPausePanel()
