@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class EnemiesController : MonoBehaviour
 {
@@ -13,7 +15,6 @@ public class EnemiesController : MonoBehaviour
     [SerializeField] private float _respawnTime;
     [SerializeField] private float _respawnTimeOnStart;
     private float _playTime;
-    private float _respawnTimeMultiplier = 1f;
 
     private float _timer;
 
@@ -40,7 +41,7 @@ public class EnemiesController : MonoBehaviour
         _timer -= Time.deltaTime;
         if(_timer < 0)
         {
-            _timer = _respawnTime * _respawnTimeMultiplier;
+            _timer = _respawnTime;
             int pointNumber = Random.Range(0, _respawnPoints.Count);
             GameObject enemy = Instantiate(_enemyToSpawn, _respawnPoints[pointNumber]);
             enemy.GetComponent<Enemy>().SetEnemyData(this, _canvasManager, PlayerTransform, _speed);
@@ -48,7 +49,8 @@ public class EnemiesController : MonoBehaviour
 
         if (_playTime >= 15)
         {
-            _respawnTimeMultiplier *= 0.75f;
+            if (_respawnTime <= 1) return;
+            _respawnTime -= 0.2f;
             _playTime = 0;
         }
     }
