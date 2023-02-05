@@ -27,6 +27,7 @@ public class RootCollisions : MonoBehaviour
         {
             if (_rootsManager.CurrentFollow == null) return;
             
+            FindObjectOfType<WaterController>().DecreaseWater();
             _rootsManager.CurrentFollow.ResetLine();
             _rootsManager.ChoseRoot();
         }

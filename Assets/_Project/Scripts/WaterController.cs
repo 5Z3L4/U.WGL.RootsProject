@@ -10,6 +10,7 @@ public class WaterController : MonoBehaviour
     public bool CanTagEnemy;
     [SerializeField] private ParticleSystem _waterParticles;
     [SerializeField] private ParticleSystem _waterTrailParticles;
+    [SerializeField] private ParticleSystem _waterSplashParticles;
     [SerializeField] private int _maxDecreaseStepsCount;
     [SerializeField] private float _delay;
     [SerializeField] private Collider2D _col;
@@ -83,6 +84,7 @@ public class WaterController : MonoBehaviour
         waterTrailParticlesEmission.rateOverDistance = new ParticleSystem.MinMaxCurve(0);
         waterParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(0);
         waterTrailParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(0);
+        _waterSplashParticles.Play();
         yield return new WaitUntil(()=> _rootsManager.Targets.Count == 0);
         yield return new WaitForSeconds(_delay);
         waterParticlesEmission.rateOverTime = new ParticleSystem.MinMaxCurve(_startingRateOverTime);
