@@ -75,6 +75,8 @@ public class CanvasManager : MonoBehaviour
         Time.timeScale = 1f;
         _darkening.DOFade(0, 0.25f).SetUpdate(true);
         _pausePanel.transform.DOScale(Vector3.zero, 0.25f).SetUpdate(true);
+        HidePanel(_optionsPanel);
+        HidePanel(_tutorialPanel);
         _isGamePaused = false;
     }
 
