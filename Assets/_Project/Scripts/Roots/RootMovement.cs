@@ -11,14 +11,28 @@ public class RootMovement : MonoBehaviour
     public bool IsStarted;
     [SerializeField] private RootsManager _rootsManager;
 
+    private float _increaseTimerBase = 15;
+    private float _increaseTimer;
+
     private void Start()
     {
+        _increaseTimer = _increaseTimerBase;
         _baseSpeed = _speed;
         _rootsManager = FindObjectOfType<RootsManager>();
     }
 
     private void Update()
     {
+        if (_increaseTimer > 0)
+        {
+            _increaseTimer -= Time.deltaTime;
+        }
+        else
+        {
+            _increaseTimer = _increaseTimerBase;
+            _baseSpeed += 0.2f;
+        }
+        
         if (!IsStarted) return;
         var distance = _speed * Time.deltaTime;
         

@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (_playerTransform == null) return;  
         if(_playerTransform.position.x - transform.position.x > 0)
         {
             _rb.transform.localScale = new Vector3(.5f,.5f,.5f);
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_playerTransform == null) return;    
         _rb.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _enemySpeed * Time.deltaTime);
     }
 
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            
+            collider.GetComponent<PlayController>().Die();
             Destroy(collider.gameObject);
         }
     }
