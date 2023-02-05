@@ -90,6 +90,7 @@ public class FollowMouse : MonoBehaviour
 
     private IEnumerator DestroyRoot()
     {
+        CurrentLine.GetComponent<Animator>().Play("Death");
         yield return new WaitForSeconds(0.3f);
         Destroy(CurrentLine);
         CreateLine();

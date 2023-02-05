@@ -63,7 +63,6 @@ public class RootsManager : MonoBehaviour
         {
             CurrentFollow.ChangeTarget(Water.transform);
         }
-
         Targets.Remove(target);
     }
 
