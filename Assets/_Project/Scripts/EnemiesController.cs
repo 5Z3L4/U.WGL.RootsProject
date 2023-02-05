@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemiesController : MonoBehaviour
 {
     public static EnemiesController Instance { get; private set; }
-    [SerializeField] private DeathSceneManager _deathManager;
+    [SerializeField] private CanvasManager _canvasManager;
     [SerializeField] private GameObject _enemyToSpawn;
     public Transform PlayerTransform;
     [SerializeField] private float _speed;
@@ -44,7 +44,7 @@ public class EnemiesController : MonoBehaviour
             _timer = _respawnTime * _respawnTimeMultiplier;
             int pointNumber = Random.Range(0, _respawnPoints.Count);
             GameObject enemy = Instantiate(_enemyToSpawn, _respawnPoints[pointNumber]);
-            enemy.GetComponent<Enemy>().SetEnemyData(this, _deathManager, PlayerTransform, _speed);
+            enemy.GetComponent<Enemy>().SetEnemyData(this, _canvasManager, PlayerTransform, _speed);
         }
 
         if (_playTime >= 15)

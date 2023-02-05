@@ -23,11 +23,11 @@ public class PlayerAnimator : MonoBehaviour
 
         if (_horizontal != 0 || _vertical != 0)//Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-            _walkingSound.enabled = true;
+            //_walkingSound.enabled = true;
         }
         else
         {
-            _walkingSound.enabled = false;
+            //_walkingSound.enabled = false;
         }
 
         if (_horizontal == 0) return;

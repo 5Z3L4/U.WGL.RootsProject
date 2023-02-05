@@ -48,7 +48,6 @@ public class CanvasManager : MonoBehaviour
             }
     }
 
-    [ContextMenu("DO IT")]
     public void DisplayDeathPanel()
     {
         Time.timeScale = 0f;
