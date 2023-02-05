@@ -6,9 +6,11 @@ using UnityEngine;
 public class RootCollisions : MonoBehaviour
 {
     [SerializeField] private RootsManager _rootsManager;
+    private CameraShake _cs;
 
     private void Start()
     {
+        _cs = FindObjectOfType<CameraShake>();
         _rootsManager = FindObjectOfType<RootsManager>();
     }
 
@@ -18,6 +20,8 @@ public class RootCollisions : MonoBehaviour
         {
             col.gameObject.GetComponent<PlayController>().Die();
         }
+        
+   
         
     }
 
@@ -29,6 +33,10 @@ public class RootCollisions : MonoBehaviour
             
             FindObjectOfType<WaterController>().DecreaseWater();
             _rootsManager.CurrentFollow.ResetLine();
+        }
+        if (col.gameObject.CompareTag("Finish"))
+        {
+            _cs.StartShake();
         }
     }
 }
