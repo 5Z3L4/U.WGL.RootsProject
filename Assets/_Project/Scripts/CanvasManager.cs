@@ -51,7 +51,7 @@ public class CanvasManager : MonoBehaviour
             .Append(_scoreText.transform.DOScale(new Vector3(1 + 0.2f, 1 + 0.2f, 1 + 0.2f), .1f))
             .Append(_scoreText.transform.DOScale(1, .1f));
         sequence.Play();
-        _scoreText.text = $"SCORE: \n {GameManager.Score}";
+        _scoreText.text = $"SCORE: {GameManager.Score}";
     }
 
 
