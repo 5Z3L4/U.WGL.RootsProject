@@ -36917,10 +36917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvasManager: {fileID: 0}
   _enemyToSpawn: {fileID: 6346583168655351976, guid: e0d97151d4eb9eb4d8820e0de8d05247, type: 3}
-  _skeletonEnemyToSpawn: {fileID: 7767161191302825313, guid: 9cca59faaeee968438303a3d6a04454b, type: 3}
   PlayerTransform: {fileID: 1986278025}
-  _speed: 1
-  _skeletonSpeed: 1
+  _speed: 2
   _respawnPoints:
   - {fileID: 1928828246}
   - {fileID: 216315321}
@@ -36938,25 +36936,8 @@ MonoBehaviour:
   - {fileID: 146093032}
   - {fileID: 1484515008}
   - {fileID: 2143473727}
-  _skeletonRespawnPoints:
-  - {fileID: 1928828246}
-  - {fileID: 216315321}
-  - {fileID: 1342025088}
-  - {fileID: 347380765}
-  - {fileID: 533476398}
-  - {fileID: 1766151156}
-  - {fileID: 1058832853}
-  - {fileID: 296966161}
-  - {fileID: 1922080244}
-  - {fileID: 736082447}
-  - {fileID: 181701305}
-  - {fileID: 220060603}
-  - {fileID: 1681372195}
-  - {fileID: 146093032}
-  - {fileID: 1484515008}
-  - {fileID: 2143473727}
-  _respawnTime: 3
-  _respawnTimeOnStart: 1
+  _respawnTime: 3.5
+  _respawnTimeOnStart: 0.1
 --- !u!4 &1108583278
 Transform:
   m_ObjectHideFlags: 0

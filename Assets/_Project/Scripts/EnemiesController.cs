@@ -43,11 +43,14 @@ public class EnemiesController : MonoBehaviour
         {
             _timer = _respawnTime;
             int pointNumber = Random.Range(0, _respawnPoints.Count);
+            int pointNumber2 = Random.Range(0, _respawnPoints.Count);
             GameObject enemy = Instantiate(_enemyToSpawn, _respawnPoints[pointNumber]);
+            GameObject enemy2 = Instantiate(_enemyToSpawn, _respawnPoints[pointNumber2]);
             enemy.GetComponent<Enemy>().SetEnemyData(this, _canvasManager, PlayerTransform, _speed);
+            enemy2.GetComponent<Enemy>().SetEnemyData(this, _canvasManager, PlayerTransform, _speed);
         }
 
-        if (_playTime >= 8)
+        if (_playTime >= 5)
         {
             if (_respawnTime <= 1) return;
             _respawnTime -= 0.2f;
