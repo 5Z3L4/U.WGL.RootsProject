@@ -23,6 +23,7 @@ public class RootsManager : MonoBehaviour
     {
         if (Targets.Contains(target)) return;
         
+        target.GetComponent<Enemy>().TagEnemy();
         WaterController.Instance.DecreaseWater();
         Targets.Add(target);
         CurrentFollow.ChangeTarget(Targets[0]);

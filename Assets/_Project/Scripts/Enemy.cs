@@ -1,8 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private Material _tagMaterial;
+    [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private SpriteRenderer _spriteTagged;
     private Rigidbody2D _rb;
 
     private EnemiesController _enemiesController;
@@ -47,5 +51,19 @@ public class Enemy : MonoBehaviour
             collider.GetComponent<PlayController>().Die();
             Destroy(collider.gameObject);
         }
+    }
+
+    public void TagEnemy()
+    {
+        StartCoroutine(StartTaggingEnemy());
+    }
+
+    private IEnumerator StartTaggingEnemy()
+    {
+        _sprite.gameObject.SetActive(false);
+        _spriteTagged.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        _sprite.gameObject.SetActive(true);
+        _spriteTagged.gameObject.SetActive(false);
     }
 }
