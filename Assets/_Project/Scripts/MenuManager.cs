@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _gameNameObject;
+
     [SerializeField] private Button _startTutorialButton;
     [SerializeField] private Button _optionsButton;
     [SerializeField] private Button _creditsButton;
@@ -49,6 +51,7 @@ public class MenuManager : MonoBehaviour
     {
         panelToOpen.transform.DOScale(Vector3.one, 0.25f).SetUpdate(true);
         _mainPanel.transform.DOScale(Vector3.zero, 0.25f).SetUpdate(true);
+        _gameNameObject.transform.DOScale(Vector3.zero, 0.25f).SetUpdate(true);
 
     }
 
@@ -56,5 +59,6 @@ public class MenuManager : MonoBehaviour
     {
         panelToHide.transform.DOScale(Vector3.zero, 0.25f).SetUpdate(true);
         _mainPanel.transform.DOScale(Vector3.one, 0.25f).SetUpdate(true);
+        _gameNameObject.transform.DOScale(Vector3.one, 0.25f).SetUpdate(true);
     }
 }
