@@ -25,7 +25,10 @@ public class WaterController : MonoBehaviour
     private float _waterTrailParticlesRateOverTimeDecreaseBasedOnStepCounts;
     
     [SerializeField] private RootsManager _rootsManager;
-    
+
+    [SerializeField] private AudioSource _waterDecreasingSound;
+    [SerializeField] private AudioSource _waterDisappearSound;
+
     private void Awake()
     {
         _rootsManager = FindObjectOfType<RootsManager>();
@@ -65,12 +68,14 @@ public class WaterController : MonoBehaviour
             waterParticleMain.startSize = new ParticleSystem.MinMaxCurve(waterParticleMain.startSize.constant - _waterParticlesSizeDecreaseBasedOnStepCounts);
             waterTrailParticleMain.startSize = new ParticleSystem.MinMaxCurve(waterTrailParticleMain.startSize.constant - _waterTrailParticlesSizeDecreaseBasedOnStepCounts);
             _counter--;
+            _waterDecreasingSound.Play();
         }
         else
         {
             CanTagEnemy = false;
             _col.enabled = false;
             StartCoroutine(StartWaterDelay());
+            _waterDisappearSound.Play();
         }
     }
 
