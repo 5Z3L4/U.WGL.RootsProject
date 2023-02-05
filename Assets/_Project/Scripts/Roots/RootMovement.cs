@@ -8,7 +8,13 @@ public class RootMovement : MonoBehaviour
     [SerializeField] public Transform _playerPosition;
     [SerializeField] private float _speed = 2f;
     public bool IsStarted;
-    
+    [SerializeField] private RootsManager _rootsManager;
+
+    private void Start()
+    {
+        _rootsManager = FindObjectOfType<RootsManager>();
+    }
+
     private void Update()
     {
         if (!IsStarted) return;
@@ -17,13 +23,13 @@ public class RootMovement : MonoBehaviour
         //prob fix of nulls in list
         if (_playerPosition == null)
         {
-            _playerPosition = RootsManager.Instance.Water.transform;
-            RootsManager.Instance.TryGetTarget(); 
+            _playerPosition = _rootsManager.Water.transform;
+            _rootsManager.TryGetTarget(); 
         }
 
         if (_playerPosition == null)
         {
-            _playerPosition = _playerPosition = RootsManager.Instance.Water.transform;;
+            _playerPosition = _playerPosition = _rootsManager.Water.transform;;
         }
         transform.position = Vector3.MoveTowards(transform.position, _playerPosition.position, distance);
     }

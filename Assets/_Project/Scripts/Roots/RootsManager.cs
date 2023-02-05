@@ -5,16 +5,16 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class RootsManager : Singleton<RootsManager>
+public class RootsManager : MonoBehaviour
 {
     public FollowMouse CurrentFollow;
-    public List<FollowMouse> AllRoots;
+    public List<FollowMouse> AllRoots = null;
     public GameObject Water;
     public List<Transform> Targets = new();
 
     private void Start()
     {
-            ChoseRoot();
+        ChoseRoot();
     }
 
     public void AddTarget(Transform target)

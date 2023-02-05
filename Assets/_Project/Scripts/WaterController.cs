@@ -23,8 +23,11 @@ public class WaterController : MonoBehaviour
     private float _waterParticlesRateOverTimeDecreaseBasedOnStepCounts;
     private float _waterTrailParticlesRateOverTimeDecreaseBasedOnStepCounts;
     
+    [SerializeField] private RootsManager _rootsManager;
+    
     private void Awake()
     {
+        _rootsManager = FindObjectOfType<RootsManager>();
         if (Instance != null && Instance != this) 
         { 
             Destroy(this); 
@@ -80,7 +83,7 @@ public class WaterController : MonoBehaviour
         waterTrailParticlesEmission.rateOverDistance = new ParticleSystem.MinMaxCurve(0);
         waterParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(0);
         waterTrailParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(0);
-        yield return new WaitUntil(()=> RootsManager.Instance.Targets.Count == 0);
+        yield return new WaitUntil(()=> _rootsManager.Targets.Count == 0);
         yield return new WaitForSeconds(_delay);
         waterParticlesEmission.rateOverTime = new ParticleSystem.MinMaxCurve(_startingRateOverTime);
         waterTrailParticlesEmission.rateOverDistance = new ParticleSystem.MinMaxCurve(_startingRateOverDistance);
@@ -89,6 +92,6 @@ public class WaterController : MonoBehaviour
         _counter = _maxDecreaseStepsCount;
         CanTagEnemy = true;
         _col.enabled = true;
-        RootsManager.Instance.ChoseRoot();
+        _rootsManager.ChoseRoot();
     }
 }

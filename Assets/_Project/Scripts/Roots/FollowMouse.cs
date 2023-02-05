@@ -19,6 +19,12 @@ public class FollowMouse : MonoBehaviour
 
     public RootMovement Rm;
 
+    [SerializeField] private RootsManager _rootsManager;
+
+    private void Awake()
+    {
+        _rootsManager = FindObjectOfType<RootsManager>();
+    }
     private void Start()
     {
         CreateLine();
@@ -36,7 +42,7 @@ public class FollowMouse : MonoBehaviour
     public void StartMovement()
     {
         Rm.IsStarted = true;
-        RootsManager.Instance.CurrentFollow = this;
+        _rootsManager.CurrentFollow = this;
     }
 
     public void ChangeTarget(Transform target)
@@ -74,7 +80,7 @@ public class FollowMouse : MonoBehaviour
     public void ResetLine()
     {
         CurrentLine.GetComponent<EdgeCollider2D>().enabled = false;
-        RootsManager.Instance.Targets.Clear();
+        _rootsManager.Targets.Clear();
         Destroy(CurrentLine);
         FingerPositions.Clear();
         FollowObj.transform.position = FollowObjStartPos.position;
