@@ -14,7 +14,7 @@ public class PlayController : MonoBehaviour
         GameObject body = Instantiate(_body, transform.position, Quaternion.identity);
         Destroy(body, 3);
         Instantiate(_bloodParticles, transform.position, Quaternion.identity);
-
+        
         Destroy(gameObject);
     }
 }

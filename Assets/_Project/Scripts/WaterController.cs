@@ -46,10 +46,10 @@ public class WaterController : MonoBehaviour
         _waterParticleStartingSize = _waterParticles.main.startSize.constant;
         _waterTrailParticleStartingSize = _waterTrailParticles.main.startSize.constant;
         _counter = _maxDecreaseStepsCount;
-        _waterParticlesSizeDecreaseBasedOnStepCounts = _waterParticleStartingSize / _maxDecreaseStepsCount;
-        _waterTrailParticlesSizeDecreaseBasedOnStepCounts = _waterTrailParticleStartingSize / _maxDecreaseStepsCount;
-        _waterParticlesRateOverTimeDecreaseBasedOnStepCounts = _startingRateOverTime / _maxDecreaseStepsCount;
-        _waterTrailParticlesRateOverTimeDecreaseBasedOnStepCounts = _startingRateOverDistance / _maxDecreaseStepsCount;
+        _waterParticlesSizeDecreaseBasedOnStepCounts = _waterParticleStartingSize / (_maxDecreaseStepsCount + 1);
+        _waterTrailParticlesSizeDecreaseBasedOnStepCounts = _waterTrailParticleStartingSize / (_maxDecreaseStepsCount + 1);
+        _waterParticlesRateOverTimeDecreaseBasedOnStepCounts = _startingRateOverTime / (_maxDecreaseStepsCount + 1);
+        _waterTrailParticlesRateOverTimeDecreaseBasedOnStepCounts = _startingRateOverDistance / (_maxDecreaseStepsCount + 1);
     }
 
     public void DecreaseWater()

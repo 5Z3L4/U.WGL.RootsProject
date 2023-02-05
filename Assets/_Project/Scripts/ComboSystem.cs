@@ -13,11 +13,8 @@ public class ComboSystem : MonoBehaviour
     public int CurrentStreak = 0;
     public int ScoreMultiplier = 1;
     public List<int> MultiplierThresholds = new();
-    [SerializeField] private GameObject _midPointPos;
-    [SerializeField] private TMP_Text _comboTextLeft;
-    [SerializeField] private TMP_Text _comboTextRight;
+    [SerializeField] private TMP_Text _comboText;
     [SerializeField] private float _timer;
-    private TMP_Text _currentComboText;
     private int _currentThresholdIndex;
     private void Awake()
     {
@@ -34,7 +31,6 @@ public class ComboSystem : MonoBehaviour
     private void Start()
     {
         _timer = StreakLength;
-        _currentComboText = _comboTextLeft;
     }
 
     private void Update()
@@ -58,13 +54,12 @@ public class ComboSystem : MonoBehaviour
                 _currentThresholdIndex++;
             }
         }
-        ChangeComboTextObject();
         var sequence = DOTween.Sequence()
-            .Append(_currentComboText.DOFade(1, 0.1f))
-            .Append(_currentComboText.transform.DOScale(new Vector3(1 + 0.2f, 1 + 0.2f, 1 + 0.2f), .1f))
-            .Append(_currentComboText.transform.DOScale(1, .1f));
+            .Append(_comboText.DOFade(1, 0.1f))
+            .Append(_comboText.transform.DOScale(new Vector3(1 + 0.2f, 1 + 0.2f, 1 + 0.2f), .1f))
+            .Append(_comboText.transform.DOScale(1, .1f));
         sequence.Play();
-        _currentComboText.text = $"COMBO {CurrentStreak} \n x{ScoreMultiplier}";
+        _comboText.text = $"COMBO {CurrentStreak} \n x{ScoreMultiplier}";
     }
 
     private void ResetCounter()
@@ -78,18 +73,9 @@ public class ComboSystem : MonoBehaviour
         _currentThresholdIndex = 0;
         ScoreMultiplier = 1;
         var sequence = DOTween.Sequence()
-            .Append(_currentComboText.transform.DOScale(new Vector3(1 - 0.2f, 1 - 0.2f, 1 - 0.2f), .1f))
-            .Append(_currentComboText.DOFade(0, 0.1f));
+            .Append(_comboText.transform.DOScale(new Vector3(1 - 0.2f, 1 - 0.2f, 1 - 0.2f), .1f))
+            .Append(_comboText.DOFade(0, 0.1f));
         sequence.Play();
-        _currentComboText.text = $"COMBO {CurrentStreak} \n x{ScoreMultiplier}";
-    }
-
-    private void ChangeComboTextObject()
-    {
-        var sequence = DOTween.Sequence()
-            .Append(_currentComboText.transform.DOScale(new Vector3(1 - 0.2f, 1 - 0.2f, 1 - 0.2f), .1f))
-            .Append(_currentComboText.DOFade(0, 0.1f));
-        sequence.Play();
-        _currentComboText = _currentComboText == _comboTextLeft ? _comboTextRight : _comboTextLeft;
+        _comboText.text = $"COMBO {CurrentStreak} \n x{ScoreMultiplier}";
     }
 }

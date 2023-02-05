@@ -1,5 +1,7 @@
+using System;
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,8 +30,30 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private Button _playAgainButton;
     [SerializeField] private Button _deathMainMenuButton;
     [SerializeField] private GameObject _deathPanel;
+    [Space(10)] 
+    [Header("SCORE")] 
+    [SerializeField] private TMP_Text _scoreText;
 
     private bool _isGamePaused;
+
+    private void OnEnable()
+    {
+        GameManager.ScoreIncreased += On_ScoreIncreased;
+    }
+    private void OnDisable()
+    {
+        GameManager.ScoreIncreased -= On_ScoreIncreased;
+    }
+    private void On_ScoreIncreased()
+    {
+        var sequence = DOTween.Sequence()
+            .Append(_scoreText.DOFade(1, 0.1f))
+            .Append(_scoreText.transform.DOScale(new Vector3(1 + 0.2f, 1 + 0.2f, 1 + 0.2f), .1f))
+            .Append(_scoreText.transform.DOScale(1, .1f));
+        sequence.Play();
+        _scoreText.text = $"SCORE: \n {GameManager.Score}";
+    }
+
 
     private void Start()
     {
@@ -59,6 +83,8 @@ public class CanvasManager : MonoBehaviour
         Time.timeScale = 0f;
         _darkening.DOFade(0.6f, 0.25f).SetUpdate(true);
         _deathPanel.transform.DOScale(Vector3.one, 0.25f).SetUpdate(true);
+        _scoreText.text = string.Empty;
+        _playerScore.text = $"YOUR SCORE: {GameManager.Score}";
         _isGamePaused = true;
     }
 
@@ -112,7 +138,11 @@ public class CanvasManager : MonoBehaviour
 
     private void SetDeathPanel()
     {
-        _playAgainButton.onClick.AddListener(() => LoadScene("Water"));
+        _playAgainButton.onClick.AddListener(() =>
+        {
+            GameManager.ResetScore();
+            LoadScene("Water");
+        });
         _deathMainMenuButton.onClick.AddListener(() => LoadScene("MainMenu"));
         _deathPanel.transform.localScale = Vector3.zero;
         _deathPanel.SetActive(true);
