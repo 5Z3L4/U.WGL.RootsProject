@@ -32,8 +32,17 @@ public class RootsManager : Singleton<RootsManager>
         {
             CurrentFollow.ChangeTarget(Targets[0]);
         }
-    } 
-    
+    }
+
+    private void Update()
+    {
+        if (!WaterController.Instance.CanTagEnemy && Targets.Count == 0)
+        {
+            CurrentFollow.ResetLine();
+            CurrentFollow.ChangeTarget(Water.transform);
+        }
+    }
+
     public void RemoveTarget(Transform target)
     {
         if (!Targets.Contains(target)) return;
@@ -46,10 +55,7 @@ public class RootsManager : Singleton<RootsManager>
         {
             CurrentFollow.ChangeTarget(Water.transform);
         }
-        if (!WaterController.Instance.CanTagEnemy && Targets.Count == 1)
-        {
-            CurrentFollow.ResetLine();
-        }
+
         Targets.Remove(target);
     }
 

@@ -16,7 +16,6 @@ public class EnemiesController : MonoBehaviour
     private float _respawnTimeMultiplier = 1f;
 
     private float _timer;
-    public bool IsPlayerDead = false;
 
     private void Awake()
     {
@@ -39,7 +38,7 @@ public class EnemiesController : MonoBehaviour
     {
         _playTime += Time.deltaTime;
         _timer -= Time.deltaTime;
-        if(_timer < 0 && !IsPlayerDead)
+        if(_timer < 0)
         {
             _timer = _respawnTime * _respawnTimeMultiplier;
             int pointNumber = Random.Range(0, _respawnPoints.Count);

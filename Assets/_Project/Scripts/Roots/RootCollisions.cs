@@ -7,9 +7,9 @@ public class RootCollisions : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Root"))
+        if (col.gameObject.CompareTag("Player"))
         {
-            print("works");
+            col.gameObject.GetComponent<PlayController>().Die();
         }
         
     }
