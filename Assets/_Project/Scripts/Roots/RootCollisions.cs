@@ -8,6 +8,8 @@ public class RootCollisions : MonoBehaviour
     [SerializeField] private RootsManager _rootsManager;
     private CameraShake _cs;
 
+    [SerializeField] private AudioSource _waterSound;
+
     private void Start()
     {
         _cs = FindObjectOfType<CameraShake>();
@@ -33,6 +35,7 @@ public class RootCollisions : MonoBehaviour
             
             FindObjectOfType<WaterController>().DecreaseWater();
             _rootsManager.CurrentFollow.ResetLine();
+            _waterSound.Play();
         }
         if (col.gameObject.CompareTag("Finish"))
         {

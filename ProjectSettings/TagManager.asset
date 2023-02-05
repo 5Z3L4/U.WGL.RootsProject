@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Root
   - Water
+  - BgMusic
   layers:
   - Default
   - TransparentFX
