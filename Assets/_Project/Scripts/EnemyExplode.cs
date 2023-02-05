@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,12 +10,22 @@ public class EnemyExplode : MonoBehaviour
     [SerializeField] private float _force;
 
     [SerializeField] private LayerMask _layerToHit;
-
+    [SerializeField] private bool _shouldPlaySound = true;
     [SerializeField] private AudioSource _explodeSound;
+
+    private System.Random _rnd;
+
+    private void Start()
+    {
+        _rnd = new System.Random();
+    }
 
     private void OnEnable()
     {
-        _explodeSound.Play();
+        if (_shouldPlaySound)
+        {
+            _explodeSound.Play();
+        }
         Explode();
     }
 
@@ -26,7 +37,9 @@ public class EnemyExplode : MonoBehaviour
         {
             Vector2 direction = obj.transform.position - transform.position;
 
-            obj.GetComponent<Rigidbody2D>().AddForce(direction * _force);
+            var rb = obj.GetComponent<Rigidbody2D>();
+            rb.AddForce(direction * _force, ForceMode2D.Impulse);
+            rb.AddTorque(1, ForceMode2D.Impulse);
         }
     }
 }

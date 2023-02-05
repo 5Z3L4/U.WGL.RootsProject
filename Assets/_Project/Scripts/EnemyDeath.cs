@@ -27,7 +27,7 @@ public class EnemyDeath : MonoBehaviour
         _rootsManager.RemoveTarget(transform);
         GameObject body = Instantiate(_body, transform.position, Quaternion.identity);
         GameManager.IncreasePoints(ComboSystem.Instance.ScoreMultiplier);
-        Destroy(body, 3);
+        Destroy(body, 1.5f);
         Instantiate(_bloodParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     } 
