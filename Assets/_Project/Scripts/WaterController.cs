@@ -13,7 +13,7 @@ public class WaterController : MonoBehaviour
     [SerializeField] private ParticleSystem _waterSplashParticles;
     [SerializeField] private int _maxDecreaseStepsCount;
     [SerializeField] private float _delay;
-    [SerializeField] private Collider2D _col;
+    [SerializeField] private CircleCollider2D _col;
     private float _startingRateOverTime;
     private float _startingRateOverDistance;
     private int _counter;
@@ -23,6 +23,8 @@ public class WaterController : MonoBehaviour
     private float _waterTrailParticlesSizeDecreaseBasedOnStepCounts;
     private float _waterParticlesRateOverTimeDecreaseBasedOnStepCounts;
     private float _waterTrailParticlesRateOverTimeDecreaseBasedOnStepCounts;
+    private float _startingColSize;
+    private float _colSizeDecrease;
     
     [SerializeField] private RootsManager _rootsManager;
 
@@ -53,6 +55,8 @@ public class WaterController : MonoBehaviour
         _waterTrailParticlesSizeDecreaseBasedOnStepCounts = _waterTrailParticleStartingSize / (_maxDecreaseStepsCount + 1);
         _waterParticlesRateOverTimeDecreaseBasedOnStepCounts = _startingRateOverTime / (_maxDecreaseStepsCount + 1);
         _waterTrailParticlesRateOverTimeDecreaseBasedOnStepCounts = _startingRateOverDistance / (_maxDecreaseStepsCount + 1);
+        _startingColSize = _col.radius;
+        _colSizeDecrease = _startingColSize / (_maxDecreaseStepsCount + 1);
     }
 
     public void DecreaseWater()
@@ -67,6 +71,7 @@ public class WaterController : MonoBehaviour
             waterTrailParticlesEmission.rateOverDistance = new ParticleSystem.MinMaxCurve(waterTrailParticlesEmission.rateOverDistance.constant - _waterTrailParticlesRateOverTimeDecreaseBasedOnStepCounts);
             waterParticleMain.startSize = new ParticleSystem.MinMaxCurve(waterParticleMain.startSize.constant - _waterParticlesSizeDecreaseBasedOnStepCounts);
             waterTrailParticleMain.startSize = new ParticleSystem.MinMaxCurve(waterTrailParticleMain.startSize.constant - _waterTrailParticlesSizeDecreaseBasedOnStepCounts);
+            _col.radius -= _colSizeDecrease;
             _counter--;
             _waterDecreasingSound.Play();
         }
@@ -97,6 +102,7 @@ public class WaterController : MonoBehaviour
         waterParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(_waterParticleStartingSize);
         waterTrailParticlesMainModule.startSize = new ParticleSystem.MinMaxCurve(_waterTrailParticleStartingSize);
         _counter = _maxDecreaseStepsCount;
+        _col.radius = _startingColSize;
         CanTagEnemy = true;
         _col.enabled = true;
         _rootsManager.ChoseRoot();
