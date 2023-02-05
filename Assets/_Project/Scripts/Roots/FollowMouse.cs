@@ -81,10 +81,18 @@ public class FollowMouse : MonoBehaviour
     {
         CurrentLine.GetComponent<EdgeCollider2D>().enabled = false;
         _rootsManager.Targets.Clear();
-        Destroy(CurrentLine);
         FingerPositions.Clear();
         FollowObj.transform.position = FollowObjStartPos.position;
         Rm.IsStarted = false;
+        StartCoroutine(DestroyRoot());
+        
+    }
+
+    private IEnumerator DestroyRoot()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Destroy(CurrentLine);
         CreateLine();
+        _rootsManager.ChoseRoot();
     }
 }
