@@ -29,7 +29,6 @@ public class RootCollisions : MonoBehaviour
             
             FindObjectOfType<WaterController>().DecreaseWater();
             _rootsManager.CurrentFollow.ResetLine();
-            _rootsManager.ChoseRoot();
         }
     }
 }

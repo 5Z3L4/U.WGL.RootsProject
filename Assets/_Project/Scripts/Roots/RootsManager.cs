@@ -11,6 +11,8 @@ public class RootsManager : MonoBehaviour
     public List<FollowMouse> AllRoots = null;
     public GameObject Water;
     public List<Transform> Targets = new();
+    public WaterController _wc;
+    private bool _didOnce;
 
     private void Start()
     {
@@ -36,10 +38,16 @@ public class RootsManager : MonoBehaviour
 
     private void Update()
     {
-        if (!WaterController.Instance.CanTagEnemy && Targets.Count == 0)
+        if (!WaterController.Instance.CanTagEnemy && Targets.Count == 0 &&!_didOnce)
         {
             CurrentFollow.ResetLine();
             CurrentFollow.ChangeTarget(Water.transform);
+            _didOnce = true;
+        }
+
+        if (WaterController.Instance.CanTagEnemy && Targets.Count > 0)
+        {
+            _didOnce = false;
         }
     }
 
@@ -61,6 +69,8 @@ public class RootsManager : MonoBehaviour
 
     public void ChoseRoot()
     {
+        if (!_wc.CanTagEnemy) return;
+        
         float lowestDistance = 1000;
         List<FollowMouse> fm = new List<FollowMouse> { CurrentFollow};
         foreach (var root in AllRoots.Except(fm))
