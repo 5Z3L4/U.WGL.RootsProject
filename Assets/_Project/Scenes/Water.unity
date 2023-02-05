@@ -23427,7 +23427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KretRoot: {fileID: 8124415424498945058, guid: 8130703f99ee4284fbcb0af094c2a12f, type: 3}
   NormalRoot: {fileID: 8124415424498945058, guid: 015e2bd977dc394458cd5aea26b3cf93, type: 3}
-  KretMode: 1
+  KretMode: 0
   UsedRoot: {fileID: 0}
 --- !u!1 &709534091
 GameObject:
@@ -64616,6 +64616,10 @@ PrefabInstance:
       propertyPath: _bloodParticles
       value: 
       objectReference: {fileID: 8795523776949636056, guid: f8ff88fee41d93148b8286974068b933, type: 3}
+    - target: {fileID: 566527358039981242, guid: 9efaa9852b60d604f94e446d67bfe797, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2573422201688197986, guid: 9efaa9852b60d604f94e446d67bfe797, type: 3}
       propertyPath: m_Name
       value: Pawn
