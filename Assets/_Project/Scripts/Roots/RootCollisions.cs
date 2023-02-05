@@ -7,6 +7,8 @@ public class RootCollisions : MonoBehaviour
 {
     [SerializeField] private RootsManager _rootsManager;
 
+    [SerializeField] private AudioSource _waterSound;
+
     private void Start()
     {
         _rootsManager = FindObjectOfType<RootsManager>();
@@ -29,6 +31,7 @@ public class RootCollisions : MonoBehaviour
             
             FindObjectOfType<WaterController>().DecreaseWater();
             _rootsManager.CurrentFollow.ResetLine();
+            _waterSound.Play();
         }
     }
 }
