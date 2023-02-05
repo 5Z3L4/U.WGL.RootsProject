@@ -1,4 +1,3 @@
-using TMPro;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +5,8 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _gameNameObject;
+
     [SerializeField] private Button _startTutorialButton;
     [SerializeField] private Button _optionsButton;
     [SerializeField] private Button _creditsButton;
@@ -19,10 +20,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _tutorialPanel;
     [SerializeField] private GameObject _optionsPanel;
     [SerializeField] private GameObject _creditsPanel;
-    [SerializeField] private TMP_Text _creditsText;
-    [Space(10)]
-    [TextArea(15, 20)]
-    [SerializeField] private string _credits;
 
     void Start()
     {
@@ -36,8 +33,6 @@ public class MenuManager : MonoBehaviour
         _tutorialPanel.SetActive(true);
         _tutorialPanel.transform.localScale = Vector3.zero;
 
-        _creditsText.text = _credits;
-
         _playButton.onClick.AddListener(() => LoadScene("Water"));
         _startTutorialButton.onClick.AddListener(() => OpenPanel(_tutorialPanel));
         _optionsButton.onClick.AddListener(() => OpenPanel(_optionsPanel));
@@ -45,7 +40,6 @@ public class MenuManager : MonoBehaviour
         _returnOptionsButton.onClick.AddListener(() => HidePanel(_optionsPanel));
         _returnCreditsButton.onClick.AddListener(() => HidePanel(_creditsPanel));
         _returnFromTutorialToMenuButton.onClick.AddListener(() => HidePanel(_tutorialPanel));
-
     }
 
     private void LoadScene(string sceneName)
@@ -57,6 +51,7 @@ public class MenuManager : MonoBehaviour
     {
         panelToOpen.transform.DOScale(Vector3.one, 0.25f).SetUpdate(true);
         _mainPanel.transform.DOScale(Vector3.zero, 0.25f).SetUpdate(true);
+        _gameNameObject.transform.DOScale(Vector3.zero, 0.25f).SetUpdate(true);
 
     }
 
@@ -64,5 +59,6 @@ public class MenuManager : MonoBehaviour
     {
         panelToHide.transform.DOScale(Vector3.zero, 0.25f).SetUpdate(true);
         _mainPanel.transform.DOScale(Vector3.one, 0.25f).SetUpdate(true);
+        _gameNameObject.transform.DOScale(Vector3.one, 0.25f).SetUpdate(true);
     }
 }
