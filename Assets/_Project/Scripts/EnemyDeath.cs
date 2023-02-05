@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyExplode;
-    [SerializeField] private GameObject _enemySprite;
     [SerializeField] private GameObject _bloodParticles;
     [SerializeField] private GameObject _body;
 
