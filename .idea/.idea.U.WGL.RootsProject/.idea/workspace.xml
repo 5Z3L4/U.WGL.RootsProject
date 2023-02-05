@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1388e22c-5044-49ea-9c2a-bcec02af5ef9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.U.WGL.RootsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.U.WGL.RootsProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Roots/RootMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Roots/RootMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Roots/RootsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Roots/RootsManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
