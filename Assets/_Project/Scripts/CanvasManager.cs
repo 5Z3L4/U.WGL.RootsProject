@@ -1,7 +1,5 @@
-using System;
 using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,15 +13,11 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private Button _replayButton;
     [SerializeField] private Button _optionsButton;
     [SerializeField] private Button _returnFromOptionsButton;
-    [SerializeField] private Button _tutorialButton;
-    [SerializeField] private Button _returnFromTutorialButton;
-    [SerializeField] private Button _closeTutorialButton;
     [SerializeField] private Button _pauseMainMenuButton;
     [SerializeField] private Button _resumeButton;
     [Header("PAUSE PANELS")]
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _optionsPanel;
-    [SerializeField] private GameObject _tutorialPanel;
     [Space(10)]
     [Header("DEATH PANEL")]
     [SerializeField] private TMP_Text _playerScore;
@@ -40,10 +34,12 @@ public class CanvasManager : MonoBehaviour
     {
         GameManager.ScoreIncreased += On_ScoreIncreased;
     }
+
     private void OnDisable()
     {
         GameManager.ScoreIncreased -= On_ScoreIncreased;
     }
+
     private void On_ScoreIncreased()
     {
         var sequence = DOTween.Sequence()
@@ -53,7 +49,6 @@ public class CanvasManager : MonoBehaviour
         sequence.Play();
         _scoreText.text = $"SCORE: {GameManager.Score}";
     }
-
 
     private void Start()
     {
@@ -102,7 +97,6 @@ public class CanvasManager : MonoBehaviour
         _darkening.DOFade(0, 0.25f).SetUpdate(true);
         _pausePanel.transform.DOScale(Vector3.zero, 0.25f).SetUpdate(true);
         HidePanel(_optionsPanel);
-        HidePanel(_tutorialPanel);
         _isGamePaused = false;
     }
 
@@ -120,19 +114,14 @@ public class CanvasManager : MonoBehaviour
         _optionsPanel.SetActive(true);
         _optionsPanel.transform.localScale = Vector3.zero;
 
-        _tutorialPanel.SetActive(true);
-        _tutorialPanel.transform.localScale = Vector3.zero;
-
         _optionsButton.onClick.AddListener(() => OpenPanel(_optionsPanel));
-        _tutorialButton.onClick.AddListener(() => OpenPanel(_tutorialPanel));
-
         _returnFromOptionsButton.onClick.AddListener(() => HidePanel(_optionsPanel));
-        _returnFromTutorialButton.onClick.AddListener(() => HidePanel(_tutorialPanel));
-        _closeTutorialButton.onClick.AddListener(() => HidePanel(_tutorialPanel));
-
         _resumeButton.onClick.AddListener(Resume);
-
-        _replayButton.onClick.AddListener(() => LoadScene("Water"));
+        _replayButton.onClick.AddListener(() =>
+        {
+            GameManager.ResetScore();
+            LoadScene("Water");
+        });
         _pauseMainMenuButton.onClick.AddListener(() => LoadScene("MainMenu"));
     }
 
