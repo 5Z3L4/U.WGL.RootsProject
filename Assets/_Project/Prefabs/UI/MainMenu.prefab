@@ -331,8 +331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254874360e51fa9409d4d6c8632e39b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameNameObject: {fileID: 3274722523092269435}
+  _titleObject: {fileID: 3274722523092269435}
   _playButton: {fileID: 3274722522438234848}
+  _sceneToLoad: MainScene
   _optionsButton: {fileID: 3274722523137769973}
   _returnOptionsButton: {fileID: 4143415811569283723}
   _mainPanel: {fileID: 3274722521911288573}
@@ -736,7 +737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Roots of Fury
+  m_text: Game Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ff901680d6046046b1f41da1da16754, type: 2}
   m_sharedMaterial: {fileID: -1514643597226782470, guid: 1ff901680d6046046b1f41da1da16754, type: 2}
